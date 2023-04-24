@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="coach_dash.css">
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav>
+        <h1>WeThrow</h1>
+        <a href="#">Logout</a>
+    </nav>
+    <!-- NAV -->
+    <!-- MAIN -->
+    <main>
+        <h1>Hello, (coach name)</h1>
+        <h2>My Throwers</h2>
+        <div class="flex_me">
+            <div class="throwers">
+                <ul>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                    <li>Thrower</li>
+                </ul>
+            </div>
+            <p class="add" onclick="displayAdd()">Add A Thrower</p>
+        </div>
+    </main>
+
+    <div class="flex">
+        <div class="add_form">
+            <div class="formT">
+                <p>Insert Thrower Email</p>
+                <p onclick="removeAdd()" class="x">X</p>
+            </div>
+            <form action="#">
+                <input type="text" name="email" id="email">
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

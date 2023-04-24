@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeThrow</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <h1 class="site">WeThrow</h1>
+    <div class="login">
+        <h1>Login</h1>
+        <form action="#" method="post" class="log">
+
+            <label for="lemail">E-mail:</label>
+            <input type="text" name="lemail" id="lemail">
+
+            <label for="lpass">Password:</label>
+            <input type="password" name="lpass" id="lpass">
+
+            <button type="submit">Login!</button>
+        </form>
+
+    </div>
+    <p onclick="displaySign()">Not a member? Sign up!</p>
+    <div class="signup">
+        <div class="signT">
+            <h1>Register</h1>
+            <h2 class="close" onclick="removeSign()">X</h2>
+        </div>
+        <form action="#" method="post" class="sign">
+            <label for="fname">First Name:</label>
+            <input type="text" name="fname" id="fname">
+            <label for="lname">Last Name:</label>
+            <input type="text" name="lname" id="lname">
+            <label for="email">E-mail:</label>
+            <input type="text" name="email" id="email">
+            <label for="pass">Password:</label>
+            <input type="password" name="pass" id="pass">
+            <label for="con_pass">Confirm Password:</label>
+            <input type="password" name="con_pass" id="con_pass">
+            <label for="position">Coach or Thrower?</label>
+            <div class="inline">
+                <input type="radio" name="position" id="coach">
+                <label for="coach">Coach</label>
+                <input type="radio" name="position" id="thrower">
+                <label for="thrower">Thrower</label>
+            </div>
+            <button type="submit">Sign-up!</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

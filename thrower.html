@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="thrower.css">
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav>
+        <h1>WeThrow</h1>
+        <a href="#">Logout</a>
+    </nav>
+    <!-- NAV -->
+    <!-- MAIN -->
+    <h1 class="name">(Thrower Name)</h1>
+    <div class="flex_me">
+        <div class="container">
+            <div>
+                <h2 class="title">Videos/Notes</h2>
+                <p class="add" onclick="displayVid()">Add video/note</p>
+                <div class="info">
+                    <video src="IMG_4266.MOV" controls></video>
+                    <h2>Notes:</h2>
+                    <p>Leading with the hips, make sure hips stay behind when landing.</p>
+                    <hr>
+                    <video src="IMG-0510.MOV" controls></video>
+                    <h2>Notes:</h2>
+                    <p>Leading with the hips, make sure hips stay behind when landing.</p>
+                    <hr>
+                </div>
+            </div>
+            <div>
+                <h2 class="title">Marks</h2>
+                <p class="add" onclick="displayMark()">Add mark</p>
+                <div class="marks">
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MAIN -->
+    <!-- ADD BOX -->
+    <div class="pop" id="vid">
+        <p style="text-align: right;" onclick="removeVid()">X</p>
+        <form id="vid_form" action="#">
+            <h3>Add Video/Note</h3>
+            <div>
+                <label for="video">Upload Video:</label>
+                <input type="file" name="video" id="video">
+            </div>
+            <div>
+                <label for="notes">Notes:</label>
+                <br>
+                <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+            </div>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <div class="pop" id="mark">
+        <p style="text-align: right;" onclick="removeMark()">X</p>
+        <form id="mark_form" action="#">
+            <h3>Add Mark</h3>
+            <div>
+                <label for="distance">Distance:</label>
+                <input type="number" name="distance" id="distance">
+            </div>
+            <div>
+                <label for="date">Date:</label>
+                <input type="date" name="date" id="date">
+            </div>
+            <button type="submit">Add</button>
+    </div>
+    <!-- ADD BOX -->
+<script src="thrower.js"></script>
+</body>
