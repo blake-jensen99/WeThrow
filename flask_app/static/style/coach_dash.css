@@ -35,7 +35,7 @@ main h1 {
 main h2 {
     text-align: center;
     margin-top: 100px;
-    text-decoration: underline;
+    font-size: 24pt;
 }
 
 .flex_me{
@@ -68,6 +68,7 @@ li{
 .add {
     margin-top: 50px;
     font-size: 14pt;
+    text-decoration: underline;
 }
 
 .add:hover {

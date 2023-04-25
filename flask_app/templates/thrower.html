@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DashBoard</title>
+    <title>{{user.first_name}} {{user.last_name}}</title>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style/thrower.css') }}">
 </head>
 
@@ -13,11 +13,16 @@
     <!-- NAV -->
     <nav>
         <h1>WeThrow</h1>
-        <a href="/clear">Logout</a>
+        <div>
+            {% if suser.position == 0 %}
+                <a href="/dashboard">Dashboard</a>
+            {% endif %}
+            <a href="/clear">Logout</a>
+        </div>
     </nav>
     <!-- NAV -->
     <!-- MAIN -->
-    <h1 class="name">(Thrower Name)</h1>
+    <h1 class="name">{{user.first_name}} {{user.last_name}}</h1>
     <div class="flex_me">
         <div class="container">
             <div>

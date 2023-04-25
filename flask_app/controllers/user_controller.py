@@ -50,16 +50,15 @@ def add_thrower():
 @app.route('/dashboard')
 def dash():
     suser = User.get_one(session['user_id'])
-    if session['user_pos'] != 0:
-        return redirect ('/thrower')
     if suser.position != 0:
-        return redirect('/thrower')
+        return redirect(f'/thrower/{suser.id}')
     users = User.get_all_throwers(suser)
     return render_template('coach_dash.html', suser = suser, users = users )
 
-@app.route('/thrower')
-def thrower():
-    return render_template('thrower.html')
+@app.route('/thrower/<int:id>')
+def thrower(id):
+    user = User.get_one(id)
+    return render_template('thrower.html', user = user, suser = User.get_one(session['user_id']))
 
 
 
