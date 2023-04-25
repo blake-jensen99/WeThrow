@@ -6,14 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeThrow</title>
-    <link rel="stylesheet" href="/flask_app/static/style/login.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style/login.css') }}">
 </head>
 
 <body>
     <h1 class="site">WeThrow</h1>
+    {% for messages in get_flashed_messages() %}
+        <p>{{messages}}</p>
+    {% endfor %}
     <div class="login">
         <h1>Login</h1>
-        <form action="#" method="post" class="log">
+        <form action="/login" method="post" class="log">
 
             <label for="lemail">E-mail:</label>
             <input type="text" name="lemail" id="lemail">
@@ -29,9 +32,10 @@
     <div class="signup">
         <div class="signT">
             <h1>Register</h1>
+            
             <h2 class="close" onclick="removeSign()">X</h2>
         </div>
-        <form action="#" method="post" class="sign">
+        <form action="/sign_up" method="post" class="sign">
             <label for="fname">First Name:</label>
             <input type="text" name="fname" id="fname">
             <label for="lname">Last Name:</label>
@@ -44,15 +48,15 @@
             <input type="password" name="con_pass" id="con_pass">
             <label for="position">Coach or Thrower?</label>
             <div class="inline">
-                <input type="radio" name="position" id="coach">
-                <label for="coach">Coach</label>
-                <input type="radio" name="position" id="thrower">
+                <input type="radio" name="position" id="coach" checked value="0">
+                <label for="coach" >Coach</label>
+                <input type="radio" name="position" id="thrower" value="1">
                 <label for="thrower">Thrower</label>
             </div>
             <button type="submit">Sign-up!</button>
     </div>
 
-    <script src="/flask_app/static/script/script.js"></script>
+    <script src="{{ url_for('static',filename='script/script.js') }}"></script>
 </body>
 
 </html>

@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DashBoard</title>
-    <link rel="stylesheet" href="/flask_app/static/style/thrower.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style/thrower.css') }}">
 </head>
 
 <body>
     <!-- NAV -->
     <nav>
         <h1>WeThrow</h1>
-        <a href="#">Logout</a>
+        <a href="/clear">Logout</a>
     </nav>
     <!-- NAV -->
     <!-- MAIN -->
@@ -24,11 +24,11 @@
                 <h2 class="title">Videos/Notes</h2>
                 <p class="add" onclick="displayVid()">Add video/note</p>
                 <div class="info">
-                    <video src="/flask_app/static/assets/videos/IMG_4266.MOV" controls></video>
+                    <video src="{{ url_for('static',filename='assets/videos/IMG_4266.MOV') }}" controls></video>
                     <h2>Notes:</h2>
                     <p>Leading with the hips, make sure hips stay behind when landing.</p>
                     <hr>
-                    <video src="/flask_app/static/assets/videos/IMG-0510.MOV" controls></video>
+                    <video src="{{ url_for('static',filename='assets/videos/IMG-0510.MOV') }}" controls></video>
                     <h2>Notes:</h2>
                     <p>Leading with the hips, make sure hips stay behind when landing.</p>
                     <hr>
@@ -101,5 +101,5 @@
             <button type="submit">Add</button>
     </div>
     <!-- ADD BOX -->
-<script src="/flask_app/static/script/script.js"></script>
+<script src="{{ url_for('static',filename='script/script.js') }}"></script>
 </body>
