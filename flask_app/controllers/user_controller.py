@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, request, session, flash
 from flask_app import app
 from flask_app.models.user_model import User
+from flask_app.models.mark_model import Mark
+from flask_app.models.video_model import Video
 from flask_bcrypt import Bcrypt        
 bcrypt = Bcrypt(app)
 
@@ -58,7 +60,9 @@ def dash():
 @app.route('/thrower/<int:id>')
 def thrower(id):
     user = User.get_one(id)
-    return render_template('thrower.html', user = user, suser = User.get_one(session['user_id']))
+    marks = Mark.get_all_by_user(id)
+    videos = Video.get_all_by_user(id)
+    return render_template('thrower.html', user = user, suser = User.get_one(session['user_id']), marks = marks, videos = videos)
 
 
 

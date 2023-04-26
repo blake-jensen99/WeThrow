@@ -29,20 +29,31 @@
                 <h2 class="title">Videos/Notes</h2>
                 <p class="add" onclick="displayVid()">Add video/note</p>
                 <div class="info">
-                    <video src="{{ url_for('static',filename='assets/videos/IMG_4266.MOV') }}" controls></video>
+                    {% for video in videos %}
+                        <iframe src="https://www.youtube.com/embed/{{video.video}}" allowfullscreen="" width="100%" height="100%" frameborder="0"></iframe>
+                        <h2>Notes:</h2>
+                        <p>{{video.notes}}</p>
+                        <hr>
+                    {% endfor %}
+
+                    <!-- <video src="{{ url_for('static',filename='assets/videos/IMG_4266.MOV') }}" controls></video>
                     <h2>Notes:</h2>
                     <p>Leading with the hips, make sure hips stay behind when landing.</p>
                     <hr>
                     <video src="{{ url_for('static',filename='assets/videos/IMG-0510.MOV') }}" controls></video>
                     <h2>Notes:</h2>
                     <p>Leading with the hips, make sure hips stay behind when landing.</p>
-                    <hr>
+                    <hr> -->
                 </div>
             </div>
             <div>
                 <h2 class="title">Marks</h2>
                 <p class="add" onclick="displayMark()">Add mark</p>
                 <div class="marks">
+                    {% for mark in marks %}
+                        <p>{{mark.type}} - {{mark.distance}} - {{mark.date}}</p>
+                    {% endfor %}
+                    <!-- <p>15.42 - 10/11/22</p>
                     <p>15.42 - 10/11/22</p>
                     <p>15.42 - 10/11/22</p>
                     <p>15.42 - 10/11/22</p>
@@ -67,8 +78,7 @@
                     <p>15.42 - 10/11/22</p>
                     <p>15.42 - 10/11/22</p>
                     <p>15.42 - 10/11/22</p>
-                    <p>15.42 - 10/11/22</p>
-                    <p>15.42 - 10/11/22</p>
+                    <p>15.42 - 10/11/22</p> -->
                 </div>
             </div>
         </div>
@@ -77,33 +87,48 @@
     <!-- ADD BOX -->
     <div class="pop" id="vid">
         <p style="text-align: right;" onclick="removeVid()">X</p>
-        <form id="vid_form" action="#">
+        <form id="vid_form" action="/add_video" method="post">
             <h3>Add Video/Note</h3>
             <div>
-                <label for="video">Upload Video:</label>
-                <input type="file" name="video" id="video">
+                <label for="video">Insert Youtube link:</label>
+                <input type="text" name="video" id="video">
             </div>
             <div>
                 <label for="notes">Notes:</label>
                 <br>
                 <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
             </div>
+            <input type="hidden" name="user_id" value="{{user.id}}">
             <button type="submit">Add</button>
         </form>
     </div>
     <div class="pop" id="mark">
         <p style="text-align: right;" onclick="removeMark()">X</p>
-        <form id="mark_form" action="#">
+        <form id="mark_form" action="/add_mark" method="post">
             <h3>Add Mark</h3>
             <div>
                 <label for="distance">Distance:</label>
-                <input type="number" name="distance" id="distance">
+                <input type="number" step="0.01" name="distance" id="distance">
             </div>
             <div>
                 <label for="date">Date:</label>
                 <input type="date" name="date" id="date">
             </div>
+            <div>
+                <input type="radio" name="event" id="shotput" value="Shotput" checked>
+                <label for="shotput">Shotput</label>
+                <input type="radio" name="event" id="discus" value="Discus">
+                <label for="discus">Discus</label>
+                <input type="radio" name="event" id="javelin" value="Javelin">
+                <label for="javelin">Javelin</label>
+                <input type="radio" name="event" id="hammer" value="Hammer">
+                <label for="hammer">Hammer</label>
+                <input type="radio" name="event" id="weight" value="Weight">
+                <label for="weight">Weight</label>
+            </div>
+            <input type="hidden" name="user_id" value="{{user.id}}">
             <button type="submit">Add</button>
+        </form>
     </div>
     <!-- ADD BOX -->
 <script src="{{ url_for('static',filename='script/script.js') }}"></script>
