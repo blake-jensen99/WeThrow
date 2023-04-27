@@ -5,18 +5,31 @@
 }
 
 body{
-    background-color: rgb(0, 61, 23);
+    background: rgb(34,193,195);
+    background: linear-gradient(133deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
+img {
+    width: 450px;
+}
+
+.body_flex{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+    margin-bottom: 82px;
+}
+
 .site{
-    margin-top: 150px;
+    margin-top: 50px;
     text-align: center;
-    font-size: 56pt;
-    margin-bottom: 100px;
+    font-size: 64pt;
+    margin-bottom: 30px;
 }
 
 .login, .signup {

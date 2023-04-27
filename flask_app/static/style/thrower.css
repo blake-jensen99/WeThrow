@@ -5,7 +5,8 @@
 }
 
 body{
-    background-color: rgb(0, 61, 23);
+    background: rgb(34,193,195);
+    background: linear-gradient(133deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);  
 }
 
 /* NAV */
@@ -15,15 +16,21 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(21, 21, 21);
+    background-color: rgb(52, 52, 52);
+    border: 2px solid black;
     padding: 20px 50px;
     font-size: 24pt;
+    position: sticky;
+    top: 0px;
 }
 
 nav a{
     font-size: 16pt;
 }
 
+img {
+    width: 300px;
+}
 /* NAV */
 
 /* MAIN */
@@ -137,7 +144,7 @@ video{
     width: 400px;
     border: solid black 2px;
     padding: 10px;
-    background-color: rgb(0, 52, 19);
+    background-color: rgb(52, 52, 52);
 }
 
 .pop button{
@@ -185,6 +192,7 @@ video{
 
 input, textarea{
     color: black;
+    padding: 2px;
 }
 
 .info iframe{

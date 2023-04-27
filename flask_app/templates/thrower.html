@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{user.first_name}} {{user.last_name}}</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style/thrower.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style/thrower.css') }}">
 </head>
 
 <body>
     <!-- NAV -->
     <nav>
-        <h1>WeThrow</h1>
+        <img src="{{url_for('static', filename='assets/images/WeThrow_logo_trans.png')}}" alt="discus throw">
         <div>
             {% if suser.position == 0 %}
-                <a href="/dashboard">Dashboard</a>
+            <a href="/dashboard">Dashboard</a>
             {% endif %}
             <a href="/clear">Logout</a>
         </div>
@@ -30,10 +30,11 @@
                 <p class="add" onclick="displayVid()">Add video/note</p>
                 <div class="info">
                     {% for video in videos %}
-                        <iframe src="https://www.youtube.com/embed/{{video.video}}" allowfullscreen="" width="100%" height="100%" frameborder="0"></iframe>
-                        <h2>Notes:</h2>
-                        <p>{{video.notes}}</p>
-                        <hr>
+                    <iframe src="https://www.youtube.com/embed/{{video.video}}" allowfullscreen="" width="100%"
+                        height="100%" frameborder="0"></iframe>
+                    <h2>Notes:</h2>
+                    <p>{{video.notes}}</p>
+                    <hr>
                     {% endfor %}
 
                     <!-- <video src="{{ url_for('static',filename='assets/videos/IMG_4266.MOV') }}" controls></video>
@@ -51,7 +52,7 @@
                 <p class="add" onclick="displayMark()">Add mark</p>
                 <div class="marks">
                     {% for mark in marks %}
-                        <p>{{mark.type}} - {{mark.distance}} - {{mark.date}}</p>
+                    <p>{{mark.type}} - {{mark.distance}} - {{mark.date}}</p>
                     {% endfor %}
                     <!-- <p>15.42 - 10/11/22</p>
                     <p>15.42 - 10/11/22</p>
@@ -131,5 +132,5 @@
         </form>
     </div>
     <!-- ADD BOX -->
-<script src="{{ url_for('static',filename='script/script.js') }}"></script>
+    <script src="{{ url_for('static',filename='script/script.js') }}"></script>
 </body>

@@ -18,7 +18,7 @@ class Mark:
     
     @classmethod
     def get_all_by_user(cls, id):
-        query = f"SELECT * FROM marks WHERE user_id = {id}"
+        query = f"SELECT * FROM marks WHERE user_id = {id} ORDER BY id DESC"
         results = connectToMySQL(DB).query_db(query)
         marks = []
         for mark in results:
