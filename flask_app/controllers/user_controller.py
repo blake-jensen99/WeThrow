@@ -69,4 +69,4 @@ def thrower(id):
 @app.route('/clear')
 def clear():
     session.clear()
-    return redirect('/')
+    return redirect('/')  
