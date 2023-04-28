@@ -5,14 +5,14 @@ from flask_app import DB, app
 class Video:
     def __init__(self, data):
         self.id = data['id']
-        self.video = data['video']
+        self.filename = data['filename']
         self.notes = data['notes']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
     @classmethod
     def save(cls, data):
-        query = "INSERT INTO videos (video, notes, created_at, updated_at, user_id) VALUE ( %(video)s, %(notes)s, NOW(), NOW(), %(user_id)s );"
+        query = "INSERT INTO videos (filename, notes, created_at, updated_at, user_id) VALUE ( %(filename)s, %(notes)s, NOW(), NOW(), %(user_id)s );"
         return connectToMySQL(DB).query_db(query, data)
     
 
@@ -25,12 +25,3 @@ class Video:
             videos.append( cls(video) )
         return videos
     
-    @staticmethod
-    def shorten(link):
-        x = link.index('=')
-        if "&" not in link:
-            result = link[x+1:len(link)]
-        else:
-            y = link.index('&')
-            result = link[x+1:y] 
-        return result

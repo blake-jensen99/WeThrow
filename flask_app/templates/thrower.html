@@ -22,6 +22,9 @@
     </nav>
     <!-- NAV -->
     <!-- MAIN -->
+    {% for messages in get_flashed_messages() %}
+    <p>{{messages}}</p>
+    {% endfor %}
     <h1 class="name">{{user.first_name}} {{user.last_name}}</h1>
     <div class="flex_me">
         <div class="container">
@@ -30,11 +33,10 @@
                 <p class="add" onclick="displayVid()">Add video/note</p>
                 <div class="info">
                     {% for video in videos %}
-                    <iframe src="https://www.youtube.com/embed/{{video.video}}" allowfullscreen="" width="100%"
-                        height="100%" frameborder="0"></iframe>
-                    <h2>Notes:</h2>
-                    <p>{{video.notes}}</p>
-                    <hr>
+                        <video controls src="{{ url_for('static', filename='files/' + video.filename) }}" alt="image pulled from static folder"></video>
+                        <h2>Notes:</h2>
+                        <p>{{video.notes}}</p>
+                        <hr>
                     {% endfor %}
 
                     <!-- <video src="{{ url_for('static',filename='assets/videos/IMG_4266.MOV') }}" controls></video>
@@ -88,11 +90,11 @@
     <!-- ADD BOX -->
     <div class="pop" id="vid">
         <p style="text-align: right;" onclick="removeVid()">X</p>
-        <form id="vid_form" action="/add_video" method="post">
+        <form id="vid_form" action="/add_video" method="post" enctype="multipart/form-data">
             <h3>Add Video/Note</h3>
             <div>
-                <label for="video">Insert Youtube link:</label>
-                <input type="text" name="video" id="video">
+                <label for="video">Upload File:</label>
+                <input type="file" name="video" id="video">
             </div>
             <div>
                 <label for="notes">Notes:</label>

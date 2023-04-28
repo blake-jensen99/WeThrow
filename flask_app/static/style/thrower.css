@@ -113,7 +113,6 @@ img {
     flex: 2;
     display: flex;
     flex-direction: column;
-    flex: 1;
     padding: 20px;
     overflow-y: scroll;
     width: 700px;
