@@ -11,6 +11,7 @@
 
 <body>
     <!-- NAV -->
+    <img class="bg" src="../static/assets/images/stripes-g4c48d4387_1920.png" alt="abstrack background image">
     <nav>
         <img src="{{url_for('static', filename='assets/images/WeThrow_logo_trans.png')}}" alt="discus throw">
         <div>
@@ -30,8 +31,11 @@
         <div class="container">
             <div>
                 <h2 class="title">Videos/Notes</h2>
-                <p class="add"  onclick="displayVid()">Add video/note</p>
                 <div class="info">
+                    <p class="add"  onclick="displayVid()">Add video/note</p>
+                    {% if videos  |length ==0 %}
+                        <p>No videos or notes posted</p>
+                    {% endif %}
                     {% for video in videos %}
                         <video controls src="{{ url_for('static', filename='files/' + video.filename) }}" alt="image pulled from static folder"></video>
                         <h2>Notes:</h2>
@@ -51,10 +55,13 @@
             </div>
             <div>
                 <h2 class="title">Marks</h2>
-                <p class="add" onclick="displayMark()">Add mark</p>
                 <div class="marks">
+                    <p class="add" onclick="displayMark()">Add mark</p>
+                    {% if marks  |length ==0 %}
+                        <p>No marks posted</p>
+                    {% endif %}
                     {% for mark in marks %}
-                    <p>{{mark.type}} - {{mark.distance}} - {{mark.date}}</p>
+                        <p>{{mark.type}} - {{mark.distance}} - {{mark.date}}</p>
                     {% endfor %}
                     <!-- <p>15.42 - 10/11/22</p>
                     <p>15.42 - 10/11/22</p>

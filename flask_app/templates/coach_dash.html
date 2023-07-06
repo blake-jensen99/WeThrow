@@ -11,6 +11,8 @@
 
 <body>
     <!-- NAV -->
+    <img class="bg" src="../static/assets/images/stripes-g4c48d4387_1920.png" alt="abstrack background image">
+
     <nav>
         <img src="{{url_for('static', filename='assets/images/WeThrow_logo_trans.png')}}" alt="discus throw">
 
@@ -23,10 +25,13 @@
         <h1>Hello, {{suser.first_name}} {{suser.last_name}}</h1>
         <h2>My Throwers</h2>
         {% for messages in get_flashed_messages() %}
-        <p style="text-align: center;">{{messages}}</p>
+            <p style="text-align: center;">{{messages}}</p>
         {% endfor %}
         <div class="flex_me">
             <div class="throwers">
+                {% if users |length ==0 %}
+                    <h3 style="margin-bottom: 50px;">No Throwers Added</h3>
+                {% endif %}
                 <ul>
                     {% for user in users %}
                     <li><a href="/thrower/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></li>
