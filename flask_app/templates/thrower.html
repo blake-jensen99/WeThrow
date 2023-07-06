@@ -30,7 +30,7 @@
         <div class="container">
             <div>
                 <h2 class="title">Videos/Notes</h2>
-                <p class="add" onclick="displayVid()">Add video/note</p>
+                <p class="add"  onclick="displayVid()">Add video/note</p>
                 <div class="info">
                     {% for video in videos %}
                         <video controls src="{{ url_for('static', filename='files/' + video.filename) }}" alt="image pulled from static folder"></video>

@@ -81,9 +81,10 @@ li{
 }
 
 .add {
-    margin-top: 50px;
+    color: rgb(0, 0, 0);
     font-size: 14pt;
-    text-decoration: underline;
+    padding: 2px;
+    border-radius: 5px;
 }
 
 .add:hover {
@@ -136,11 +137,16 @@ form{
 
 form input{
     color: black;
+    margin-top: 20px;
     width: 150%;
+    padding: 6px;
+    border-radius: 5px;
 }
 form button{
     color: black;
     width: 50%;
+    border-radius: 5px;
+    box-shadow: 2px 2px black;
 }
 
 
