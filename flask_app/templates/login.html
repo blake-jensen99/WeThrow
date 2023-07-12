@@ -12,12 +12,15 @@
 <body>
     <img class="bg" src="../static/assets/images/stripes-g4c48d4387_1920.png" alt="abstrack background image">
     <h1 class="site">WeThrow</h1>
-    {% for messages in get_flashed_messages() %}
-    <p>{{messages}}</p>
-    {% endfor %}
+
     <div class="body_flex">
         <img src="{{url_for('static', filename='assets/images/discobolus-6274799.png')}}" alt="discus throw">
         <div>
+            <div class="errors">
+                {% for messages in get_flashed_messages() %}
+                    <p>{{messages}}</p>
+                {% endfor %}
+            </div>
             <div class="login">
                 <h1>Login</h1>
                 <form action="/login" method="post" class="log">
